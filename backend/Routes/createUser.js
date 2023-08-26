@@ -31,4 +31,30 @@ body('password','Password have morethan 4 characters').isLength({min:5})
     }
 })
 
+
+router.post('/loginuser',
+body('email','Invalid Email address').isEmail(),
+body('password','Password have morethan 4 characters').isLength({min:5})
+,async(req,res)=>{
+
+    const result = validationResult(req);
+  if (!result.isEmpty()) {
+        return res.status(400).json({errors: result.array()} );
+  }
+
+  
+
+    try {
+        const {email,password}=req.body;
+        let userData=await User.findOne({email,password});
+        if(!userData){
+            res.status(400).json({errors:"Error in credentials"})
+        }
+        res.json({success:true});
+    } catch (error) {
+        console.log(error)
+        res.json({success:false})
+    }
+})
+
 module.exports=router;

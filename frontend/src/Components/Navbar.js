@@ -32,8 +32,8 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-light" to="#">
-                  Pricing
+                <Link className="nav-link text-light" to="signup">
+                  Sign Up
                 </Link>
               </li>
               
