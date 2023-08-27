@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const port=5000
 const mongoDB=require('./db')
 const createUser=require('./Routes/createUser')
+const displayData=require('./Routes/displayData')
 mongoDB();
 app.use(express.json())
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/api',createUser)
+app.use('/api',displayData)
 
 app.listen(port,()=>{
     console.log(`Port running on ${port}`)

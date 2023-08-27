@@ -1,34 +1,44 @@
-import React from 'react'
+import React from "react";
 
-function Cards() {
+function Cards(props) {
+  let options = props.options;
+
+  let priceOption = Object.keys(options || {});
+  
   return (
     <div>
-        <div className="card m-2" style={{"width": "18rem"}}>
-        <img src="https://source.unsplash.com/random/?tea" className="card-img-top" alt="..." style={{height:"300px"}} />
+      <div className="card m-2" style={{ width: "18rem" }}>
+        <img
+          src={props.imgSrc}
+          className="card-img-top"
+          alt="..."
+          style={{ height: "230px"}}
+        />
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
+          <h5 className="card-title">{props.foodName}</h5>
+          
           <select>
-            {Array.from(Array(10),(e,i)=>{
-                return(
-                    <option key={i+1} value={i+1}>{i+1}</option>
-                )
+            {Array.from(Array(10), (e, i) => {
+              return (
+                <option key={i + 1} value={i + 1}>
+                  {i + 1}
+                </option>
+              );
             })}
           </select>
           <select className="m-2">
-            <option value="half">Half</option>
-            <option value="half">Full</option>
+            {priceOption.map((data) => (
+              <option key={data} value={data}>
+                {data}    
+              </option>
+            ))}
           </select>
-          <div className="d-inline fs-5 ">
-            Total Price
-          </div>
+          
+          <div className="d-inline fs-5 ">Total Price</div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Cards
+export default Cards;

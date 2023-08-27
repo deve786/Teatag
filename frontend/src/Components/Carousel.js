@@ -10,14 +10,14 @@ function Carousel() {
       >
         <div className="carousel-inner">
           <div className="carousel-caption" style={{zIndex:"10"}}>
-            <form class="d-flex">
+            <form className="d-flex">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
             </form>
@@ -38,7 +38,7 @@ function Carousel() {
               style={{ filter: "brightness(20%)" }}
             />
           </div>
-          <div className="carousel-item" style={{objectFit:"contain !important" }}>
+          <div className="carousel-item" style={{objectFit:"fill !important" }}>
             <img
               src="https://source.unsplash.com/900x700/?shawarma"
               className="d-block w-100"
