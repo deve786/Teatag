@@ -131,9 +131,9 @@ function Home() {
                         return (
                           <div key={filterItem._id} className="col-12 col-md-6 col-lg-3">
                             <Cards
-                              foodName={filterItem.name}
+                              foodItem={filterItem}
                               options={options}
-                              imgSrc={filterItem.img}
+                              
                             />
                           </div>
                         );
